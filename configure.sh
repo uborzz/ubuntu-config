@@ -7,7 +7,7 @@ DIR=$(pwd)
 cd ~
 
 # common file for extend bash and zsh rc files and util func
-COMMON=~/.uborzzrc
+COMMON=.uborzzrc
 
 add_to_rc () {
 	echo "" >> ~/$COMMON
