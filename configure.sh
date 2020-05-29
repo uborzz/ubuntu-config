@@ -70,7 +70,7 @@ sudo ln -s /usr/bin/python /usr/bin/python3
 sudo ln -s /usr/bin/pip /usr/bin/pip3
 
 pip install --user pipenv
-add_to_rc "export PATH=/home/uborzz/.local/bin:\$PATH"
+add_to_rc 'export PATH="$HOME/.local/bin:$PATH"'
 
 code --install-extension ms-python.python
 
