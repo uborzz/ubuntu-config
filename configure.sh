@@ -6,9 +6,10 @@
 DIR=$(pwd)
 cd ~
 
-# common file for extend bash and zsh rc files and util func
+# common file for extend bash and zsh rc files. Name can be edited.
 COMMON=.uborzzrc
 
+# help function to append content to the rc file
 add_to_rc () {
 	echo "" >> ~/$COMMON
 	echo $1 >> ~/$COMMON
@@ -29,7 +30,7 @@ sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 chsh -s /usr/bin/zsh
 
-# make .bashrc - zshrc use our common rc
+# make .bashrc & .zshrc use the common rc file
 echo "" >> .bashrc
 echo "source ~/$COMMON" >> .bashrc
 echo "" >> .zshrc
@@ -54,15 +55,6 @@ sudo snap install code --classic
 code --install-extension eamodio.gitlens
 code --install-extension yzhang.markdown-all-in-one
 
-# docker
-sudo apt install docker.io -y
-sudo systemctl start docker
-sudo systemctl enable docker
-
-# docker-compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
 # python: pip and venv
 sudo apt install python3-pip
 sudo apt install python3-venv
@@ -76,6 +68,15 @@ code --install-extension ms-python.python
 
 # pycharm
 sudo snap install pycharm-community --classic
+
+# docker
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+
+# docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 # fuck
 pip install thefuck
