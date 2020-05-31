@@ -9,7 +9,7 @@ cd ~
 # common file for extend bash and zsh rc files. Name can be edited.
 COMMON=.uborzzrc
 
-# help functions to append content to the rc file
+# help functions to append content to the rc file and print info
 add_to_rc () {
 	printf "\n$1\n" >> ~/$COMMON
 }
@@ -22,6 +22,10 @@ info () {
 info Running update and upgrade
 sudo apt update
 sudo apt upgrade
+
+
+# basic
+# -----
 
 # curl
 info Installing curl
@@ -42,6 +46,10 @@ echo "" >> .bashrc
 echo "source ~/$COMMON" >> .bashrc
 echo "" >> .zshrc
 echo "[[ -e ~/$COMMON ]] && emulate sh -c 'source ~/$COMMON'" >> .zshrc
+
+
+# apps
+# ----
 
 # chrome
 info Installing chrome
@@ -67,13 +75,20 @@ sudo snap install code --classic
 code --install-extension eamodio.gitlens
 code --install-extension yzhang.markdown-all-in-one
 
-# python: pip and venv
+
+# python
+# ------
+
 info Installing python utils
+# version 3.8.X is already installed in ubuntu 20.04
+
+# python: pip and venv
 sudo apt install python3-pip
 sudo apt install python3-venv
 sudo ln -s /usr/bin/python /usr/bin/python3
 sudo ln -s /usr/bin/pip /usr/bin/pip3
 
+# pipenv
 pip install --user pipenv
 add_to_rc 'export PATH="$HOME/.local/bin:$PATH"'
 
@@ -83,7 +98,10 @@ code --install-extension ms-python.python
 info Installing Pycharm
 sudo snap install pycharm-community --classic
 
+
 # docker
+# ------
+
 info Installing docker
 sudo apt install docker.io -y
 sudo systemctl start docker
@@ -95,20 +113,9 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 
-# fuck
-info Installing fuck
-pip install thefuck
-add_to_rc 'eval "$(thefuck --alias)"'
-
-# vim
-info Installing vim
-sudo apt install vim -y
-
-# meld
-info Installing meld
-sudo apt install meld -y
-
 # rust
+# ----
+
 info Installing rust
 curl https://sh.rustup.rs -sSf | sh
 source $HOME/.cargo/env
@@ -118,13 +125,19 @@ code --install-extension bungcip.better-toml
 code --install-extension rust-lang.rust
 code --install-extension serayuzgur.crates
 
+
 # deno
+# ----
+
 info Installing deno
 curl -fsSL https://deno.land/x/install/install.sh | sh
 add_to_rc 'export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"'
 
+
 # golang
+# ------
+
 info Installing go
 wget https://dl.google.com/go/go1.14.3.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.*.tar.gz
@@ -133,18 +146,70 @@ export GOPATH=$HOME/projects/go
 export PATH=$PATH:$GOPATH/bin'
 rm -rf go1.*.tar.gz
 
+
+# nvm and node
+# ----
+
+info Installing nvm
+
+# nvm
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+# nvm and bash_completion exports are automatically writen in bashrc
+
+# export to use npm for module installs in this script
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# nvm load as plugin in zsh
+sed -i 's/plugins=(git)/plugins=(git nvm)/g' .zshrc
+
+# installs node
+info Installing node
+nvm install node
+
+
+# more tools
+# ----------
+
+# fuck
+info Installing fuck
+pip install thefuck
+add_to_rc 'eval "$(thefuck --alias)"'
+
+# vim
+info Installing vim
+sudo apt install vim -y
+
+# fzf
+info Installing fzf
+sudo apt-get install fzf
+
+# meld
+info Installing meld
+sudo apt install meld -y
+
+# tldr
+info Installing tldr
+sudo npm install -g tldr
+
 # timeshift
 info Installing timeshit
 sudo apt-get install timeshift
 
+
 # configure ssh keys
+# ------------------
+
 info "Creating ssh key pair without passphrase on ~/.ssh/id_ed25519.pub"
 read -p 'Insert label/comment for your key (usually email) >> ' LABEL
 yes "" | ssh-keygen -t ed25519 -b 4096 -C $LABEL
 info "Here is your public key:"
 cat "$HOME/.ssh/id_ed25519.pub"
 
+
 # configure git
+# -------------
+
 echo 'Configuring git'
 read -p 'What name do you want to use with git? ' GIT_NAME
 read -p 'What email do you want to use with git? ' GIT_EMAIL
@@ -156,6 +221,8 @@ info Running update and upgrade again
 sudo apt update
 sudo apt upgrade
 
+
 # back to dir
 cd $DIR
-info Thats all. Run versions.sh to check versions installed.
+info "Thats all! 
+Run versions.sh to check versions installed."
