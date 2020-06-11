@@ -72,8 +72,6 @@ sudo snap install vlc
 # vscode
 info Installing VS Code
 sudo snap install code --classic
-code --install-extension eamodio.gitlens
-code --install-extension yzhang.markdown-all-in-one
 
 
 # python
@@ -111,6 +109,8 @@ sudo systemctl enable docker
 info Installing docker compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+code --install-extension ms-azuretools.vscode-docker
 
 
 # rust
@@ -195,6 +195,16 @@ sudo npm install -g tldr
 # timeshift
 info Installing timeshit
 sudo apt-get install timeshift
+
+# more vscode utilities
+info Installing more VS Code extensions
+code --install-extension eamodio.gitlens
+code --install-extension yzhang.markdown-all-in-one
+code --install-extension humao.rest-client
+code --install-extension coenraads.bracket-pair-colorizer
+code --install-extension formulahendry.auto-rename-tag
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension esbenp.prettier-vscode
 
 
 # configure ssh keys
