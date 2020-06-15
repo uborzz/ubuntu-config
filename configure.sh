@@ -196,6 +196,10 @@ sudo npm install -g tldr
 info Installing timeshit
 sudo apt-get install timeshift
 
+# postman
+info Installing Postman client
+sudo snap install postman
+
 # more vscode utilities
 info Installing more VS Code extensions
 code --install-extension eamodio.gitlens
