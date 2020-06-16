@@ -1,19 +1,29 @@
 #!/usr/bin/bash
 
 # Run after Ubuntu 20.04 clean install
-# installs and config stuff.
+# installs and configs stuff.
 
 DIR=$(pwd)
 cd ~
 
-# common file for extend bash and zsh rc files. Name can be edited.
-COMMON=.uborzzrc
+# common file in home directory for extending bash and zsh rc files. 
+read -p "Enter new rc file name (leave blank to use .uborzzrc): " answer
+COMMON=${answer:-.uborzzrc}
 
-# help functions to append content to the rc file and print info
+if [ -f "$COMMON" ]; then
+	read -p "File $COMMON already found. Things are gonna be appended. Ok? (y/N): " answer	
+	case $answer in
+		y|Y) ;;
+		*) echo "Exiting..." && exit 1
+	esac
+fi
+
+# help function to append content to the rc file 
 add_to_rc () {
 	printf "\n$1\n" >> ~/$COMMON
 }
 
+# help function to print info
 info () {
 	printf "\n$*\n"
 }
@@ -197,8 +207,12 @@ info Installing timeshit
 sudo apt-get install timeshift
 
 # postman
-info Installing Postman client
+info Installing postman client
 sudo snap install postman
+
+# dbeaver
+info Installing dbeaver
+sudo snap install dbeaver-ce
 
 # more vscode utilities
 info Installing more VS Code extensions
@@ -234,6 +248,17 @@ git config --global push.default simple
 info Running update and upgrade again
 sudo apt update
 sudo apt upgrade
+
+
+# add to path custom folder shortcuts in user home
+read -p "Add shortcuts folder to path? (y, N): " answer
+case $answer in
+	y|Y) create=true;;
+	*) create=false;;
+esac
+[ $create = true ] && echo "Adding shortcuts to path..." || echo "Not adding..."
+[ $create = true ] && add_to_rc 'export PATH="$PATH:$HOME/shortcuts"'
+[ $create = true ] && mkdir -p shortcuts 
 
 
 # back to dir
