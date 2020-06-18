@@ -214,6 +214,13 @@ sudo snap install postman
 info Installing dbeaver
 sudo snap install dbeaver-ce
 
+# microsoft teams
+info Installing microsoft teams
+sudo chown _apt /var/lib/update-notifier/package-data-downloads/partial
+wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.5153_amd64.deb
+sudo apt install ./teams_1.3.00.5153_amd64.deb
+rm teams_1.3.00.5153_amd64.deb
+
 # more vscode utilities
 info Installing more VS Code extensions
 code --install-extension eamodio.gitlens
