@@ -194,6 +194,10 @@ sudo apt install vim -y
 info Installing fzf
 sudo apt-get install fzf
 
+# terminator
+infor Installing terminator
+sudo apt install terminator
+
 # meld
 info Installing meld
 sudo apt install meld -y
