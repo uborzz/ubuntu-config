@@ -48,8 +48,12 @@ sudo apt install git
 # zsh + oh my zsh
 info Installing zsh and oh my zsh
 sudo apt install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-chsh -s /usr/bin/zsh
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh --unattended
+rm install.sh
+chsh -s /usr/bin/zsh  # makes zsh the default shell
+
 
 # make .bashrc & .zshrc use the common rc file
 echo "" >> .bashrc
@@ -93,8 +97,8 @@ info Installing python utils
 # python: pip and venv
 sudo apt install python3-pip
 sudo apt install python3-venv
-sudo ln -s /usr/bin/python /usr/bin/python3
-sudo ln -s /usr/bin/pip /usr/bin/pip3
+sudo ln -s /usr/bin/python3 /usr/bin/python
+sudo ln -s /usr/bin/pip3 /usr/bin/pip
 
 # pipenv
 pip install --user pipenv
