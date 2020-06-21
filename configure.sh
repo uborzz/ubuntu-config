@@ -208,7 +208,7 @@ sudo apt install meld -y
 
 # tldr
 info Installing tldr
-sudo npm install -g tldr
+npm install -g tldr
 
 # timeshift
 info Installing timeshit
