@@ -203,7 +203,7 @@ info Installing fzf
 sudo apt-get install fzf
 
 # terminator
-infor Installing terminator
+info Installing terminator
 sudo apt install terminator
 
 # meld
