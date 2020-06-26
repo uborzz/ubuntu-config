@@ -157,8 +157,8 @@ export PATH=$PATH:$GOPATH/bin'
 rm -rf go1.*.tar.gz
 
 
-# nvm and node
-# ----
+# nvm, node, npm
+# --------------
 
 info Installing nvm
 
@@ -166,7 +166,7 @@ info Installing nvm
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 # nvm and bash_completion exports are automatically writen in bashrc
 
-# export to use npm for module installs in this script
+# export to use nvm for installs in this script
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
@@ -177,6 +177,9 @@ sed -i 's/plugins=(git)/plugins=(git nvm)/g' .zshrc
 info Installing node
 nvm install node
 
+# node utils
+info Installing nodemon
+npm install -g nodemon
 
 # more tools
 # ----------
