@@ -48,8 +48,13 @@ sudo apt install git
 # zsh + oh my zsh
 info Installing zsh and oh my zsh
 sudo apt install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-chsh -s /usr/bin/zsh
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh --unattended
+rm install.sh
+info Making zsh your default shell...
+chsh -s /usr/bin/zsh  # makes zsh the default shell
+
 
 # make .bashrc & .zshrc use the common rc file
 echo "" >> .bashrc
@@ -93,8 +98,8 @@ info Installing python utils
 # python: pip and venv
 sudo apt install python3-pip
 sudo apt install python3-venv
-sudo ln -s /usr/bin/python /usr/bin/python3
-sudo ln -s /usr/bin/pip /usr/bin/pip3
+sudo ln -s /usr/bin/python3 /usr/bin/python
+sudo ln -s /usr/bin/pip3 /usr/bin/pip
 
 # pipenv
 pip install --user pipenv
@@ -207,7 +212,7 @@ sudo apt install meld -y
 
 # tldr
 info Installing tldr
-sudo npm install -g tldr
+npm install -g tldr
 
 # timeshift
 info Installing timeshit
@@ -244,24 +249,25 @@ code --install-extension esbenp.prettier-vscode
 
 info "Creating ssh key pair without passphrase on ~/.ssh/id_ed25519.pub"
 read -p 'Insert label/comment for your key (usually email) >> ' LABEL
+if [[ -z "$LABEL" ]]; then
+   printf '%s\n' "No input given. Your username is gonna be used as comment."
+   LABEL=$USER
+fi
 yes "" | ssh-keygen -t ed25519 -b 4096 -C $LABEL
 info "Here is your public key:"
 cat "$HOME/.ssh/id_ed25519.pub"
+read -n 1 -r -s -p $'Take your key and press any key to continue...\n'
 
 
 # configure git
 # -------------
 
-echo 'Configuring git'
+info 'Configuring git'
 read -p 'What name do you want to use with git? ' GIT_NAME
 read -p 'What email do you want to use with git? ' GIT_EMAIL
 git config --global user.email $GIT_EMAIL
 git config --global user.name $GIT_NAME
 git config --global push.default simple
-
-info Running update and upgrade again
-sudo apt update
-sudo apt upgrade
 
 
 # add to path custom folder shortcuts in user home
@@ -274,6 +280,10 @@ esac
 [ $create = true ] && add_to_rc 'export PATH="$PATH:$HOME/shortcuts"'
 [ $create = true ] && mkdir -p shortcuts 
 
+
+info Running update and upgrade again
+sudo apt update
+sudo apt upgrade
 
 # back to dir
 cd $DIR
