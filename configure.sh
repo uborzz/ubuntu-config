@@ -185,6 +185,7 @@ nvm install node
 # node utils
 info Installing nodemon
 npm install -g nodemon
+npm install -g express-generator
 
 # more tools
 # ----------
