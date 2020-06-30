@@ -7,8 +7,9 @@ DIR=$(pwd)
 cd ~
 
 # common file in home directory for extending bash and zsh rc files. 
-read -p "Enter new rc file name (leave blank to use .uborzzrc): " answer
-COMMON=${answer:-.uborzzrc}
+DEFAULT_FILE=.${USER}rc
+read -p "Enter new rc file name (leave blank to use ${DEFAULT_FILE}): " answer
+COMMON=${answer:-${DEFAULT_FILE}}
 
 if [ -f "$COMMON" ]; then
 	read -p "File $COMMON already found. Things are gonna be appended. Ok? (y/N): " answer	
