@@ -127,6 +127,15 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 code --install-extension ms-azuretools.vscode-docker
 
+# allows user to run docker commands (no sudo needed)
+# needed for vscode docker plugin to run propperly 
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+
+# portainer 
+docker volume create portainer_data
+docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
 # rust
 # ----
