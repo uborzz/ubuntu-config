@@ -172,6 +172,13 @@ export PATH=$PATH:$GOPATH/bin'
 rm -rf go1.*.tar.gz
 
 
+# default java jdk
+# ----------------
+
+sudo apt-get install default-jdk
+code --install-extension vscjava.vscode-java-pack
+
+
 # nvm, node, npm
 # --------------
 
@@ -237,13 +244,6 @@ sudo snap install postman
 info Installing dbeaver
 sudo snap install dbeaver-ce
 
-# microsoft teams
-info Installing microsoft teams
-sudo chown _apt /var/lib/update-notifier/package-data-downloads/partial
-wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.5153_amd64.deb
-sudo apt install ./teams_1.3.00.5153_amd64.deb
-rm teams_1.3.00.5153_amd64.deb
-
 # more vscode utilities
 info Installing more VS Code extensions
 code --install-extension eamodio.gitlens
@@ -254,6 +254,18 @@ code --install-extension formulahendry.auto-rename-tag
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension esbenp.prettier-vscode
 
+# corporative
+# -----------
+
+# microsoft teams
+info Installing microsoft teams
+sudo chown _apt /var/lib/update-notifier/package-data-downloads/partial
+wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.5153_amd64.deb
+sudo apt install ./teams_1.3.00.5153_amd64.deb
+rm teams_1.3.00.5153_amd64.deb
+
+# microsoft outlook
+sudo snap install prospect-mail
 
 # configure ssh keys
 # ------------------
