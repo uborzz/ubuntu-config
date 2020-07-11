@@ -239,7 +239,8 @@ info Installing dbeaver
 sudo snap install dbeaver-ce
 
 # platformio
-info Installing PlatformIO on top of VSCode
+info Installing PlatformIO on top of VSCode\
+info PlatformIO Core and C++ code utuls will be installed after launch VSCode
 code --install-extension platformio.platformio-ide
 
 # microsoft teams
