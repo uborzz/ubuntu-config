@@ -197,6 +197,7 @@ info Installing nodemon
 npm install -g nodemon
 npm install -g express-generator
 
+
 # more tools
 # ----------
 
@@ -236,6 +237,10 @@ sudo snap install postman
 # dbeaver
 info Installing dbeaver
 sudo snap install dbeaver-ce
+
+# platformio
+info Installing PlatformIO on top of VSCode
+code --install-extension platformio.platformio-ide
 
 # microsoft teams
 info Installing microsoft teams
