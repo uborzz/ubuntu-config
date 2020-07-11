@@ -238,10 +238,22 @@ sudo snap install postman
 info Installing dbeaver
 sudo snap install dbeaver-ce
 
+
 # platformio
-info Installing PlatformIO on top of VSCode\
-info PlatformIO Core and C++ code utuls will be installed after launch VSCode
+# ----------
+
+info Installing PlatformIO on top of VSCode
+
+# platformio core
+python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/develop/scripts/get-platformio.py)"
+add_to_rc 'export PATH=$PATH:~/.platformio/penv/bin'
+
+# c++ code utils
+code --install ms-vscode.cpptools
+
+# platformio ide
 code --install-extension platformio.platformio-ide
+
 
 # microsoft teams
 info Installing microsoft teams
