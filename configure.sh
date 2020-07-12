@@ -226,6 +226,14 @@ sudo apt install meld -y
 info Installing tldr
 npm install -g tldr
 
+# tree
+info Installing tree
+sudo apt-get install tree
+
+# nmap
+info Installing nmap
+sudo apt-get install nmap
+
 # timeshift
 info Installing timeshit
 sudo apt-get install timeshift
