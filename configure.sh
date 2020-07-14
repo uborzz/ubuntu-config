@@ -244,6 +244,15 @@ sudo snap install postman
 info Installing dbeaver
 sudo snap install dbeaver-ce
 
+# wine
+info Installing wine
+sudo dpkg --add-architecture i386
+wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
+sudo apt update
+sudo apt install --install-recommends winehq-stable
+sudo apt-get install winetricks
+
 # more vscode utilities
 info Installing more VS Code extensions
 code --install-extension eamodio.gitlens
