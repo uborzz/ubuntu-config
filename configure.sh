@@ -204,6 +204,10 @@ info Installing nodemon
 npm install -g nodemon
 npm install -g express-generator
 
+# typescript
+info Installing tsc
+npm install -g typescript
+
 
 # platformio
 # ----------
