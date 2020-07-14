@@ -204,6 +204,23 @@ info Installing nodemon
 npm install -g nodemon
 npm install -g express-generator
 
+
+# platformio
+# ----------
+
+info Installing PlatformIO on top of VSCode
+
+# platformio core
+python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/develop/scripts/get-platformio.py)"
+add_to_rc 'export PATH=$PATH:~/.platformio/penv/bin'
+
+# c++ code utils
+code --install ms-vscode.cpptools
+
+# platformio ide
+code --install-extension platformio.platformio-ide
+
+
 # more tools
 # ----------
 
@@ -232,6 +249,14 @@ sudo apt install meld -y
 info Installing tldr
 npm install -g tldr
 
+# tree
+info Installing tree
+sudo apt-get install tree
+
+# nmap
+info Installing nmap
+sudo apt-get install nmap
+
 # timeshift
 info Installing timeshit
 sudo apt-get install timeshift
@@ -252,6 +277,7 @@ sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal mai
 sudo apt update
 sudo apt install --install-recommends winehq-stable
 sudo apt-get install winetricks
+
 
 # more vscode utilities
 info Installing more VS Code extensions
