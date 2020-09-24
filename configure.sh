@@ -108,6 +108,9 @@ add_to_rc 'export PATH="$HOME/.local/bin:$PATH"'
 
 code --install-extension ms-python.python
 
+# deadsnakes for other python versions
+sudo add-apt-repository ppa:deadsnakes/ppa
+
 # pycharm
 info Installing Pycharm
 sudo snap install pycharm-community --classic
@@ -137,6 +140,14 @@ newgrp docker
 # portainer 
 docker volume create portainer_data
 docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+
+
+# WIP: running in vscode python interpreters from dockerized venvs
+# # docker-machine
+# curl -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
+#     chmod +x /tmp/docker-machine &&
+#     sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
+
 
 # rust
 # ----
@@ -282,6 +293,13 @@ sudo apt update
 sudo apt install --install-recommends winehq-stable
 sudo apt-get install winetricks
 
+# pdf mix
+info Installing PDF Mix Tool
+sudo snap install pdfmixtool
+
+# gimp
+info Install gimp
+sudo apt-get install gimp -y
 
 # more vscode utilities
 info Installing more VS Code extensions
