@@ -314,6 +314,18 @@ code --install-extension esbenp.prettier-vscode
 # corporative
 # -----------
 
+# azure cli
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+# kubectl
+sudo az aks install-cli
+
+# helm
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+rm get_helm.sh
+
 # microsoft teams
 info Installing microsoft teams
 sudo chown _apt /var/lib/update-notifier/package-data-downloads/partial
