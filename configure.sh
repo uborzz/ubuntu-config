@@ -318,7 +318,13 @@ code --install-extension esbenp.prettier-vscode
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 # kubectl
+# TODO do this propperly
 sudo az aks install-cli
+echo "" >> ~/.zshrc
+echo "alias k=kubectl" >> ~/.zshrc
+echo "" >> ~/.zshrc
+echo "if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
+echo "" >> ~/.zshrc
 
 # helm
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
