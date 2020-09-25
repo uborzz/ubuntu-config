@@ -311,9 +311,6 @@ code --install-extension formulahendry.auto-rename-tag
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension esbenp.prettier-vscode
 
-# corporative
-# -----------
-
 # azure cli
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
@@ -331,6 +328,15 @@ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scr
 chmod 700 get_helm.sh
 ./get_helm.sh
 rm get_helm.sh
+
+# minikube
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+sudo dpkg -i minikube_latest_amd64.deb
+rm minikube_latest_amd64.deb
+
+
+# corporative
+# -----------
 
 # microsoft teams
 info Installing microsoft teams
