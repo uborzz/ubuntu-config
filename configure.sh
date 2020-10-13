@@ -182,6 +182,8 @@ export GOPATH=$HOME/projects/go
 export PATH=$PATH:$GOPATH/bin'
 rm -rf go1.*.tar.gz
 
+code --install-extension golang.go
+
 
 # default java jdk
 # ----------------
