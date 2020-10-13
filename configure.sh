@@ -329,6 +329,9 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 rm get_helm.sh
 
+# helmfile
+sudo snap install helmfile-snap
+
 # minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
 sudo dpkg -i minikube_latest_amd64.deb
