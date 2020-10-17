@@ -286,6 +286,10 @@ sudo snap install postman
 info Installing dbeaver
 sudo snap install dbeaver-ce
 
+# robo3t
+info Installing robomongo
+sudo snap install robo3t-snap
+
 # wine
 info Installing wine
 sudo dpkg --add-architecture i386
@@ -331,13 +335,18 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 rm get_helm.sh
 
-# helmfile
-sudo snap install helmfile-snap
-
 # minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
 sudo dpkg -i minikube_latest_amd64.deb
 rm minikube_latest_amd64.deb
+
+# helmfile
+git clone https://github.com/roboll/helmfile.git helmfile
+cd helmfile
+make build
+make install
+cd ..
+rm -rf helmfile
 
 
 # corporative
