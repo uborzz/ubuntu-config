@@ -24,6 +24,10 @@ add_to_rc () {
 	printf "\n$1\n" >> ~/$COMMON
 }
 
+add_to_zshrc () {
+	printf "\n$1\n" >> ~/.zshrc
+}
+
 # help function to print info
 info () {
 	printf "\n$*\n"
@@ -253,6 +257,7 @@ sudo apt install vim -y
 # fzf
 info Installing fzf
 sudo apt-get install fzf
+add_to_zshrc 'source /usr/share/doc/fzf/examples/key-bindings.zsh'
 
 # terminator
 info Installing terminator
