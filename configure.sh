@@ -295,6 +295,18 @@ sudo snap install dbeaver-ce
 info Installing robomongo
 sudo snap install robo3t-snap
 
+# pgadmin4
+info Installing pgadmin
+sudo apt install pgadmin4
+
+# git-cola
+info Installing git-cola
+sudo apt-get install git-cola
+
+# parcellite
+info Installing parcellite
+sudo apt install parcellite
+
 # wine
 info Installing wine
 sudo dpkg --add-architecture i386
@@ -407,6 +419,17 @@ esac
 info Running update and upgrade again
 sudo apt update
 sudo apt upgrade
+
+
+# needs interaction
+# -----------------
+
+# dbschema
+info Installing dbschema
+wget https://dbschema.com/download/DbSchema_unix_8_4_0.sh
+chmod +x DbSchema_unix_*
+./DbSchema_unix_*
+
 
 # back to dir
 cd $DIR
