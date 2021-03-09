@@ -17,6 +17,9 @@ if [ -f "$COMMON" ]; then
 		y|Y) ;;
 		*) echo "Exiting..." && exit 1
 	esac
+else
+	echo "\nCreating $COMMON file\n"
+	touch $COMMON
 fi
 
 # help function to append content to the rc file 
@@ -343,7 +346,7 @@ sudo az aks install-cli
 echo "" >> ~/.zshrc
 echo "alias k=kubectl" >> ~/.zshrc
 echo "" >> ~/.zshrc
-echo "if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
+echo "if [ $(which kubectl) ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
 echo "" >> ~/.zshrc
 
 # helm
