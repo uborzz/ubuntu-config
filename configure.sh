@@ -300,6 +300,8 @@ sudo snap install robo3t-snap
 
 # pgadmin4
 info Installing pgadmin
+sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
+sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
 sudo apt install pgadmin4
 
 # git-cola
@@ -308,6 +310,8 @@ sudo apt-get install git-cola
 
 # parcellite
 info Installing parcellite
+	# deps
+sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 sudo apt install parcellite
 
 # wine
