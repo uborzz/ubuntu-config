@@ -92,6 +92,11 @@ sudo snap install spotify
 info Installing VLC
 sudo snap install vlc
 
+# discord
+info Installing discord
+sudo snap install discord
+
+
 # vscode
 info Installing VS Code
 sudo snap install code --classic
