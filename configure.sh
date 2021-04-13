@@ -339,11 +339,10 @@ sudo snap install pdfmixtool
 info Install gimp
 sudo apt-get install gimp -y
 
-<<<<<<< HEAD
 # joplin
 info Install Joplin
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
-=======
+
 # xnview
 info Install XnView
 wget https://download.xnview.com/XnViewMP-linux-x64.deb
@@ -357,8 +356,6 @@ sudo apt install kazam
 # openshot
 info Install OpenShot
 sudo apt install openshot
-
->>>>>>> 5f213aad12b6c5f7d90869c2c0ead1cc1f701a62
 
 # more vscode utilities
 info Installing more VS Code extensions
