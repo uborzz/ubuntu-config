@@ -264,7 +264,7 @@ sudo apt install vim -y
 
 # fzf
 info Installing fzf
-sudo apt-get install fzf
+sudo apt-get install fzf -y
 add_to_zshrc 'source /usr/share/doc/fzf/examples/key-bindings.zsh'
 
 # terminator
@@ -281,11 +281,14 @@ npm install -g tldr
 
 # tree
 info Installing tree
-sudo apt-get install tree
+sudo apt-get install tree -y
 
 # nmap
 info Installing nmap
-sudo apt-get install nmap
+sudo apt-get install nmap -y
+
+# gparted
+sudo apt-get install gparted -y
 
 # timeshift
 info Installing timeshit
@@ -336,9 +339,26 @@ sudo snap install pdfmixtool
 info Install gimp
 sudo apt-get install gimp -y
 
+<<<<<<< HEAD
 # joplin
 info Install Joplin
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+=======
+# xnview
+info Install XnView
+wget https://download.xnview.com/XnViewMP-linux-x64.deb
+sudo apt install ./XnViewMP*.deb -y
+sudo rm ./XnViewMP*.deb
+
+# kazam
+info Install Kazam
+sudo apt install kazam
+
+# openshot
+info Install OpenShot
+sudo apt install openshot
+
+>>>>>>> 5f213aad12b6c5f7d90869c2c0ead1cc1f701a62
 
 # more vscode utilities
 info Installing more VS Code extensions
