@@ -336,6 +336,10 @@ sudo snap install pdfmixtool
 info Install gimp
 sudo apt-get install gimp -y
 
+# joplin
+info Install Joplin
+wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+
 # more vscode utilities
 info Installing more VS Code extensions
 code --install-extension eamodio.gitlens
@@ -384,9 +388,9 @@ rm -rf helmfile
 # microsoft teams
 info Installing microsoft teams
 sudo chown _apt /var/lib/update-notifier/package-data-downloads/partial
-wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.5153_amd64.deb
-sudo apt install ./teams_1.3.00.5153_amd64.deb
-rm teams_1.3.00.5153_amd64.deb
+wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.4.00.7556_amd64.deb
+sudo apt install ./teams_*
+rm teams_*
 
 # microsoft outlook
 sudo snap install prospect-mail
@@ -432,6 +436,10 @@ info Running update and upgrade again
 sudo apt update
 sudo apt upgrade
 
+# bugs fix: lags opening apps
+sudo apt install appmenu-gtk2-module appmenu-gtk3-module -y
+# disables all app autostart (remmina and teams)
+rm ~/.config/autostart/*
 
 # needs interaction
 # -----------------
