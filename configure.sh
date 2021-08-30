@@ -371,13 +371,22 @@ code --install-extension esbenp.prettier-vscode
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 # kubectl
-# TODO do this propperly
+# TODO do this propperly (for bash)
 sudo az aks install-cli
-echo "" >> ~/.zshrc
-echo "alias k=kubectl" >> ~/.zshrc
+# - kubectl completion tool
 echo "" >> ~/.zshrc
 echo "if [ $(which kubectl) ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
+# - kubectl colors
+go get github.com/dty1er/kubecolor/cmd/kubecolor
 echo "" >> ~/.zshrc
+echo "if [ $(which kubecolor) ]; then compdef kubecolor=kubectl; fi" >> ~/.zshrc
+# - kubectl alias -> k
+echo "" >> ~/.zshrc
+echo "alias k=kubecolor" >> ~/.zshrc
+echo "" >> ~/.zshrc
+
+# kubernetes lens
+sudo snap install kontena-lens --classic
 
 # helm
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
