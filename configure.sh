@@ -399,6 +399,9 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest
 sudo dpkg -i minikube_latest_amd64.deb
 rm minikube_latest_amd64.deb
 
+# kind
+GO111MODULE="on" go get sigs.k8s.io/kind@v0.11.1
+
 # helmfile
 git clone https://github.com/roboll/helmfile.git helmfile
 cd helmfile
