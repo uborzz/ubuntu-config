@@ -399,7 +399,7 @@ sudo dpkg -i minikube_latest_amd64.deb
 rm minikube_latest_amd64.deb
 
 # kind
-GO111MODULE="on" go get sigs.k8s.io/kind@v0.11.1
+GO111MODULE="on" go install sigs.k8s.io/kind@v0.11.1
 
 # helmfile
 git clone https://github.com/roboll/helmfile.git helmfile
