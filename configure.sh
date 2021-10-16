@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-# Run after Ubuntu 20.04 clean install
+# Run after Ubuntu 21.10 clean install
 # installs and configs stuff.
 
 DIR=$(pwd)
@@ -47,11 +47,11 @@ sudo apt upgrade
 
 # curl
 info Installing curl
-sudo apt install curl 
+sudo apt install curl -y
 
 # git
 info Installing git
-sudo apt install git
+sudo apt install git -y
 
 # zsh + oh my zsh
 info Installing zsh and oh my zsh
@@ -106,7 +106,6 @@ sudo snap install code --classic
 # ------
 
 info Installing python utils
-# version 3.8.X is already installed in ubuntu 20.04
 
 # python: pip and venv
 sudo apt install python3-pip
@@ -138,16 +137,16 @@ sudo systemctl enable docker
 
 # docker-compose
 info Installing docker compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 code --install-extension ms-azuretools.vscode-docker
 
 # allows user to run docker commands (no sudo needed)
 # needed for vscode docker plugin to run propperly 
-sudo groupadd docker
+sudo groupadd -f docker
 sudo usermod -aG docker $USER
-newgrp docker
+# newgrp docker
 
 # portainer 
 docker volume create portainer_data
@@ -187,7 +186,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"'
 # ------
 
 info Installing go
-wget https://dl.google.com/go/go1.14.3.linux-amd64.tar.gz
+wget https://dl.google.com/go/go1.17.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.*.tar.gz
 add_to_rc 'export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/projects/go
@@ -200,7 +199,7 @@ code --install-extension golang.go
 # default java jdk
 # ----------------
 
-sudo apt-get install default-jdk
+sudo apt-get install default-jdk -y
 code --install-extension vscjava.vscode-java-pack
 
 
@@ -210,7 +209,7 @@ code --install-extension vscjava.vscode-java-pack
 info Installing nvm
 
 # nvm
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 # nvm and bash_completion exports are automatically writen in bashrc
 
 # export to use nvm for installs in this script
@@ -269,7 +268,7 @@ add_to_zshrc 'source /usr/share/doc/fzf/examples/key-bindings.zsh'
 
 # terminator
 info Installing terminator
-sudo apt install terminator
+sudo apt install terminator -y
 
 # meld
 info Installing meld
@@ -314,13 +313,13 @@ sudo apt install pgadmin4
 
 # git-cola
 info Installing git-cola
-sudo apt-get install git-cola
+sudo apt-get install git-cola -y
 
 # parcellite
 info Installing parcellite
 	# deps
 sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
-sudo apt install parcellite
+sudo apt install parcellite -y
 
 # wine
 info Installing wine
@@ -329,7 +328,7 @@ wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
 sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
 sudo apt update
 sudo apt install --install-recommends winehq-stable
-sudo apt-get install winetricks
+sudo apt-get install winetricks -y
 
 # pdf mix
 info Installing PDF Mix Tool
@@ -351,11 +350,11 @@ sudo rm ./XnViewMP*.deb
 
 # kazam
 info Install Kazam
-sudo apt install kazam
+sudo apt install kazam -y
 
 # openshot
 info Install OpenShot
-sudo apt install openshot
+sudo apt install openshot -y
 
 # more vscode utilities
 info Installing more VS Code extensions
@@ -411,18 +410,18 @@ cd ..
 rm -rf helmfile
 
 
-# corporative
-# -----------
+# # corporative
+# # -----------
 
-# microsoft teams
-info Installing microsoft teams
-sudo chown _apt /var/lib/update-notifier/package-data-downloads/partial
-wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.4.00.7556_amd64.deb
-sudo apt install ./teams_*
-rm teams_*
+# # microsoft teams
+# info Installing microsoft teams
+# sudo chown _apt /var/lib/update-notifier/package-data-downloads/partial
+# wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.4.00.7556_amd64.deb
+# sudo apt install ./teams_*
+# rm teams_*
 
-# microsoft outlook
-sudo snap install prospect-mail
+# # microsoft outlook
+# sudo snap install prospect-mail
 
 # configure ssh keys
 # ------------------
