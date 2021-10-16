@@ -119,8 +119,9 @@ add_to_rc 'export PATH="$HOME/.local/bin:$PATH"'
 
 code --install-extension ms-python.python
 
-# deadsnakes for other python versions
-sudo add-apt-repository ppa:deadsnakes/ppa
+# ubuntu version not supported yet
+# # deadsnakes for other python versions
+# sudo add-apt-repository ppa:deadsnakes/ppa
 
 # pycharm
 info Installing Pycharm
@@ -305,11 +306,12 @@ sudo snap install dbeaver-ce
 info Installing robomongo
 sudo snap install robo3t-snap
 
-# pgadmin4
-info Installing pgadmin
-sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
-sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
-sudo apt install pgadmin4
+# ubuntu version not supported yet
+# # pgadmin4
+# info Installing pgadmin
+# sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
+# sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+# sudo apt install pgadmin4
 
 # git-cola
 info Installing git-cola
@@ -376,13 +378,16 @@ sudo az aks install-cli
 echo "" >> ~/.zshrc
 echo "if [ $(which kubectl) ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
 # - kubectl colors
-go get github.com/dty1er/kubecolor/cmd/kubecolor
+go install github.com/dty1er/kubecolor/cmd/kubecolor
 echo "" >> ~/.zshrc
 echo "if [ $(which kubecolor) ]; then compdef kubecolor=kubectl; fi" >> ~/.zshrc
 # - kubectl alias -> k
 echo "" >> ~/.zshrc
 echo "alias k=kubecolor" >> ~/.zshrc
 echo "" >> ~/.zshrc
+
+# vs plugin
+code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
 
 # kubernetes lens
 sudo snap install kontena-lens --classic
@@ -392,6 +397,10 @@ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scr
 chmod 700 get_helm.sh
 ./get_helm.sh
 rm get_helm.sh
+# helm completion
+echo "" >> ~/.zshrc
+echo "if [ $(which helm) ]; then source <(helm completion zsh); fi" >> ~/.zshrc
+
 
 # minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
