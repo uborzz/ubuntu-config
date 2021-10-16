@@ -283,6 +283,9 @@ npm install -g tldr
 info Installing tree
 sudo apt-get install tree -y
 
+# ccat
+go install -u github.com/owenthereal/ccat@latest
+
 # nmap
 info Installing nmap
 sudo apt-get install nmap -y
@@ -378,7 +381,7 @@ sudo az aks install-cli
 echo "" >> ~/.zshrc
 echo "if [ $(which kubectl) ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
 # - kubectl colors
-go install github.com/dty1er/kubecolor/cmd/kubecolor
+go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
 echo "" >> ~/.zshrc
 echo "if [ $(which kubecolor) ]; then compdef kubecolor=kubectl; fi" >> ~/.zshrc
 # - kubectl alias -> k
