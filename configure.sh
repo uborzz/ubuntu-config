@@ -200,7 +200,7 @@ code --install-extension golang.go
 # default java jdk
 # ----------------
 
-sudo apt-get install default-jdk -y
+sudo apt install openjdk-17-jdk
 code --install-extension vscjava.vscode-java-pack
 
 
