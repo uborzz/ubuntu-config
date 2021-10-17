@@ -253,6 +253,12 @@ code --install-extension platformio.platformio-ide
 # more tools
 # ----------
 
+# # brew
+# info Installing brew
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.uborzzrc
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # fuck
 info Installing fuck
 pip install thefuck
@@ -489,6 +495,60 @@ info Installing dbschema
 wget https://dbschema.com/download/DbSchema_unix_8_4_0.sh
 chmod +x DbSchema_unix_*
 ./DbSchema_unix_*
+rm .DbSchema_unix_*
+
+# android
+# -------
+
+info Downloading Android Studio
+# needs java
+
+# deps for 64bits machine
+sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386 -y
+
+wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2020.3.1.25/android-studio-2020.3.1.25-linux.tar.gz
+tar -xf android-studio-*-linux.tar.gz
+sudo mv android-studio /opt/
+rm android-studio-*-linux.tar.gz
+
+# links
+sudo ln -sf /opt/android-studio/bin/studio.sh /bin/android-studio
+
+# watchman
+info Install watchman
+
+git clone https://github.com/facebook/watchman.git
+cd watchman
+git checkout v4.9.0 
+# deps
+sudo apt-get install -y autoconf automake build-essential python-dev libssl-dev libtool
+./autogen.sh
+./configure --enable-lenient
+make
+sudo make install
+cd ..
+sudo rm -rf watchman
+
+# react native
+# needed for react native
+info 'Launching android studio installation, for react native, check all boxes indicated in https://reactnative.dev/docs/environment-setup'
+info 'Select:
+> Android SDK
+> Android SDK Platform
+> Android Virtual Device
+> (SDK) Android 10 (Q)
+> Android SDK Platform 29
+> Intel x86 Atom_64 System Image or Google APIs Intel x86 Atom System Image
+> SDK Tool tab - check 29.0.2'
+
+add_to_rc 'export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools'
+
+read "Press any key to continue..."
+/opt/android-studio/bin/studio.sh
 
 
 # back to dir
