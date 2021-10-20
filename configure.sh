@@ -197,10 +197,11 @@ rm -rf go1.*.tar.gz
 code --install-extension golang.go
 
 
-# default java jdk
+# java jdk 17 and 11
 # ----------------
 
 sudo apt install openjdk-17-jdk
+sudo apt-get install default-jdk  # 11
 code --install-extension vscjava.vscode-java-pack
 
 
@@ -290,7 +291,7 @@ info Installing tree
 sudo apt-get install tree -y
 
 # ccat
-go install -u github.com/owenthereal/ccat@latest
+/usr/local/go/bin/go install github.com/owenthereal/ccat@latest
 
 # nmap
 info Installing nmap
@@ -387,7 +388,7 @@ sudo az aks install-cli
 echo "" >> ~/.zshrc
 echo "if [ $(which kubectl) ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
 # - kubectl colors
-go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
+/usr/local/go/bin/go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
 echo "" >> ~/.zshrc
 echo "if [ $(which kubecolor) ]; then compdef kubecolor=kubectl; fi" >> ~/.zshrc
 # - kubectl alias -> k
@@ -417,7 +418,7 @@ sudo dpkg -i minikube_latest_amd64.deb
 rm minikube_latest_amd64.deb
 
 # kind
-GO111MODULE="on" go install sigs.k8s.io/kind@v0.11.1
+/usr/local/go/bin/go install sigs.k8s.io/kind@v0.11.1
 
 # helmfile
 git clone https://github.com/roboll/helmfile.git helmfile
