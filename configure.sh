@@ -386,14 +386,16 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 sudo az aks install-cli
 # - kubectl completion tool
 echo "" >> ~/.zshrc
-echo "if [ $(which kubectl) ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
+echo 'if [ $(which kubectl) ]; then source <(kubectl completion zsh); fi' >> ~/.zshrc
 # - kubectl colors
 /usr/local/go/bin/go install github.com/dty1er/kubecolor/cmd/kubecolor@latest
 echo "" >> ~/.zshrc
-echo "if [ $(which kubecolor) ]; then compdef kubecolor=kubectl; fi" >> ~/.zshrc
+echo 'if [ $(which kubecolor) ]; then compdef kubecolor=kubectl; fi' >> ~/.zshrc
 # - kubectl alias -> k
 echo "" >> ~/.zshrc
 echo "alias k=kubecolor" >> ~/.zshrc
+echo 'complete -o nospace -C $(which kubecolor) kubecolor'
+
 echo "" >> ~/.zshrc
 
 # vs plugin
@@ -409,7 +411,7 @@ chmod 700 get_helm.sh
 rm get_helm.sh
 # helm completion
 echo "" >> ~/.zshrc
-echo "if [ $(which helm) ]; then source <(helm completion zsh); fi" >> ~/.zshrc
+echo 'if [ $(which helm) ]; then source <(helm completion zsh); fi' >> ~/.zshrc
 
 
 # minikube
