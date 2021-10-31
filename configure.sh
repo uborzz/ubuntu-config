@@ -412,7 +412,8 @@ rm get_helm.sh
 # helm completion
 echo "" >> ~/.zshrc
 echo 'if [ $(which helm) ]; then source <(helm completion zsh); fi' >> ~/.zshrc
-
+# helm repo bitnami
+helm repo add bitnami https://charts.bitnami.com/bitnami
 
 # minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
