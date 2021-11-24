@@ -398,6 +398,9 @@ rm get_helm.sh
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
 sudo dpkg -i minikube_latest_amd64.deb
 rm minikube_latest_amd64.deb
+# conntrack
+sudo apt-get install -y conntrack
+
 
 # kind
 GO111MODULE="on" go get sigs.k8s.io/kind@v0.11.1
