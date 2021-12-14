@@ -286,6 +286,12 @@ sudo apt install meld -y
 info Installing tldr
 npm install -g tldr
 
+# jq
+sudo apt-get install jq -y
+
+# yq
+pip install --user --quiet --no-warn-script-location yq
+
 # tree
 info Installing tree
 sudo apt-get install tree -y
