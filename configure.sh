@@ -440,6 +440,19 @@ make install
 cd ..
 rm -rf helmfile
 
+# azure tools
+# https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+code --install-extension ms-vscode.vscode-node-azure-pack
+code --install-extension ms-azuretools.vscode-azureappservice
+code --install-extension ms-azuretools.vscode-cosmosdb
+code --install-extension ms-azuretools.vscode-azurefunctions
+code --install-extension ms-azuretools.vscode-azurestorage
+code --install-extension ms-azuretools.vscode-azurevirtualmachines
+code --install-extension ms-azuretools.vscode-azureresourcegroups
+# code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-azure-devops.azure-pipelines
+code --install-extension ms-vscode.azurecli 
+
 
 # # corporative
 # # -----------
