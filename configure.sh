@@ -187,7 +187,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"'
 # ------
 
 info Installing go
-wget https://dl.google.com/go/go1.17.2.linux-amd64.tar.gz
+wget https://dl.google.com/go/go1.19.1.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.*.tar.gz
 add_to_rc 'export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/projects/go
@@ -360,6 +360,10 @@ sudo apt-get install gimp -y
 info Install Joplin
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
 
+# notion
+info Install Notion
+sudo snap install notion-snap
+
 # xnview
 info Install XnView
 wget https://download.xnview.com/XnViewMP-linux-x64.deb
@@ -430,7 +434,7 @@ sudo apt-get install -y conntrack
 
 
 # kind
-/usr/local/go/bin/go install sigs.k8s.io/kind@v0.11.1
+/usr/local/go/bin/go install sigs.k8s.io/kind@v0.15.0
 
 # helmfile
 git clone https://github.com/roboll/helmfile.git helmfile
