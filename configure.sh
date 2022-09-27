@@ -517,6 +517,38 @@ sudo apt install appmenu-gtk2-module appmenu-gtk3-module -y
 # disables all app autostart (remmina and teams)
 rm ~/.config/autostart/*
 
+
+# terraform
+# ---------
+
+# ensure up-to-date and packages needed
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+
+# Install the HashiCorp GPG key
+wget -O- https://apt.releases.hashicorp.com/gpg | \
+    gpg --dearmor | \
+    sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+# # Verify fingerprint
+# $ gpg --no-default-keyring \
+#     --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg \
+#     --fingerprint
+
+# add repo
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
+    https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
+    sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+# download packages info
+sudo apt update
+
+# install
+sudo apt-get install terraform
+
+# install autocomplete
+terraform -install-autocomplete
+
+
 # needs interaction
 # -----------------
 
