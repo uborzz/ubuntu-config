@@ -246,6 +246,7 @@ add_to_rc 'export PATH=$PATH:~/.platformio/penv/bin'
 
 # c++ code utils
 code --install ms-vscode.cpptools
+code --install ms-vscode.cpptools-extension-pack
 
 # platformio ide
 code --install-extension platformio.platformio-ide
