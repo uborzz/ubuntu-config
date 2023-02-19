@@ -544,7 +544,7 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
 sudo apt update
 
 # install
-sudo apt-get install terraform
+sudo apt-get install -y terraform
 
 # install autocomplete
 terraform -install-autocomplete
@@ -553,7 +553,7 @@ terraform -install-autocomplete
 # ansible
 # -------
 
-sudo apt-get install ansible
+sudo apt-get install -y ansible
 
 
 # aws cli
