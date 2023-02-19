@@ -550,6 +550,12 @@ sudo apt-get install terraform
 terraform -install-autocomplete
 
 
+# ansible
+# -------
+
+sudo apt-get install ansible
+
+
 # aws cli
 # -------
 
