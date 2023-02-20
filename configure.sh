@@ -235,6 +235,13 @@ info Installing tsc
 npm install -g typescript
 
 
+# elixir (& erlang)
+# -----------------
+
+info Installing erlang and elixir
+sudo apt-get install elixir
+
+
 # platformio
 # ----------
 
@@ -556,6 +563,12 @@ terraform -install-autocomplete
 sudo apt-get install -y ansible
 
 
+# virtualbox
+# ----------
+
+sudo apt-get install -y virtualbox
+
+
 # aws cli
 # -------
 
@@ -568,6 +581,9 @@ rm awscliv2.zip
 
 # needs interaction
 # -----------------
+
+# virtualbox extension pack
+sudo apt-get install -y virtualbox—ext–pack
 
 # dbschema
 info Installing dbschema
